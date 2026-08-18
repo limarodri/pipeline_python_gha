@@ -2,7 +2,7 @@ name: "Lab02 - Workflows Trigger - Cron"
 
 on:
   schedule:
-    - cron: '2 20 * * *'
+    - cron: '20 2 * * *'
 
 env:
   NODE_VERSION: '18'
@@ -30,4 +30,3 @@ jobs:
           echo "Total de commits: $(git rev-list --all --count)"
           echo "Contribuidores únicos: $(git shortlog -sn | wc -l)"
           echo "Último commit: $(git log -1 --pretty=format:'%h - %s (%an,%ar)')"
-          
