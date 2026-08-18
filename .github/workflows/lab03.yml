@@ -1,0 +1,35 @@
+name: "Lab03 - Workflows Trigger Branch"
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'src/**'
+      - 'README.md'
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  push-job:
+    name: "Workflows Trigger Branch"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Informações do Push
+        run: |
+          echo "Workflow diparado por Push"
+          echo "Commit: ${{ github.sha }}"
+          echo "Autor: ${{ github.actor }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "Repositório: ${{ github.repository }}"
+
+      - name: Listar arquivos modificados
+        run: |
+          echo "Arquivos no repositório"
+          ls -la
