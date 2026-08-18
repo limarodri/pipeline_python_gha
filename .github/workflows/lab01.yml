@@ -1,0 +1,41 @@
+name: "Lab01 - Estrutura dos Workflows"
+
+on:
+  push:
+    branches: [main, dev]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  demonstrando-estrutura:
+    name: "Demonstrar Estrutura Básica"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do Código
+        uses: actions/checkout@v4
+
+      - name: Mostrar estrutura .github/workflows
+        run: |
+          echo "== ESTRUTURA DE DIRETÓRIOS E ARQUIVOS .github/workflows =="
+          ls -la .github/workflows
+          echo ""
+          echo "Total de workflows: $(ls -1 .github/workflows/*.yml 2>/dev/null | wc -l)"
+
+      - name: Elementos obrigatórios do workflow
+        run: |
+          echo "== ELEMENTOS OBRIGATÓRIOS =="
+          echo "1. name: Nome do workflow"
+          echo "2. on: Evento que dispara o workflow"
+          echo "3. jobs: Definição dos trabalhos a serem executados"
+
+      - name: Variáveis e Contexto
+        run: |
+          echo "== VARIÁVEIS E CONTEXTO =="
+          echo "Variável env: ${{ env.NODE_VERSION }}"
+          echo "Variável env: ${{ github.repository }}"
+          echo "Variável env: ${{ github.ref_name }}"
+          echo "Variável env: ${{ github.actor }}"
+          
