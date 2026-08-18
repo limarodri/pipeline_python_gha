@@ -1,0 +1,32 @@
+name: Jobs Paralelo vs Sequencial
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint
+        run: echo "Lint OK"
+
+  testes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Testes
+        run: echo "Testes OK"
+
+  build:
+    needs: [lint, testes]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: echo "Build executado"
+
+  publicar:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publicar (simulado)
+        run: echo "Publicação concluída"
