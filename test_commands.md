@@ -1,6 +1,6 @@
-# Comandos para Testes de Cobertura
+# 🧪 Comandos para Testes de Cobertura
 
-## Pré-requisitos
+## 📋 Pré-requisitos
 Certifique-se de que seu virtual environment está ativo e as dependências estão instaladas:
 
 ```bash
@@ -11,7 +11,7 @@ source .venv/bin/activate  # ou source venv/bin/activate
 pip install pytest pytest-cov coverage httpx
 ```
 
-## Comandos de Teste
+## 🚀 Comandos de Teste
 
 ### 1. Testes Simples
 ```bash
@@ -27,13 +27,13 @@ python -m pytest --cov=. --cov-report=term-missing -v
 ```bash
 python -m pytest --cov=. --cov-report=html --cov-report=term-missing -v
 ```
-- Relatório gerado em: `htmlcov/index.html`
+- 📊 Relatório gerado em: `htmlcov/index.html`
 
 ### 4. Testes com Cobertura + Relatório XML
 ```bash
 python -m pytest --cov=. --cov-report=xml --cov-report=term-missing -v
 ```
-- Relatório gerado em: `coverage.xml`
+- 📊 Relatório gerado em: `coverage.xml`
 
 ### 5. Testes Completos (Todos os Relatórios)
 ```bash
@@ -49,7 +49,7 @@ python -m pytest tests/test_main.py::TestTaskCRUD -v
 python -m pytest tests/test_main.py::TestHealthEndpoint -v
 ```
 
-## Relatórios de Cobertura
+## 📊 Relatórios de Cobertura
 
 ### Terminal
 - Mostra percentual de cobertura por arquivo
@@ -73,7 +73,7 @@ open htmlcov/index.html
 python -m pytest --cov=. --cov-report=xml -v
 ```
 
-## Comandos de Coverage Diretos
+## 🎯 Comandos de Coverage Diretos
 
 ```bash
 # Executar testes e gerar dados de cobertura
@@ -92,17 +92,17 @@ python -m coverage xml
 python -m coverage erase
 ```
 
-## Estrutura dos Testes
+## 📈 Estrutura dos Testes
 
 Nossos testes cobrem:
--**Health Check** endpoint
--**CRUD de Tarefas** (Create, Read, Update, Delete)
--**Filtros e Paginação**
--**Estatísticas**
--**Validação de Dados**
--**Casos de Erro**
+- ✅ **Health Check** endpoint
+- ✅ **CRUD de Tarefas** (Create, Read, Update, Delete)
+- ✅ **Filtros e Paginação**
+- ✅ **Estatísticas**
+- ✅ **Validação de Dados**
+- ✅ **Casos de Erro**
 
-## Análise de Cobertura
+## 🔍 Análise de Cobertura
 
 ### Meta de Cobertura
 - **Mínimo**: 80%
