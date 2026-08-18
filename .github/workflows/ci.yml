@@ -1,24 +1,30 @@
+## Isso é um WORKFLOW padrão de um git hub actions
+## Um WORKFLOW nada mais e do que a automação em si que queremos
+## performar quando temos uma nova feature
 name: "Meu primeiro workflow"
 
+## Aqui temos os eventos, que é o que trigga o workflow
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+## Variaveis de ambiente
 env:
   NODE_VERSION: '18'
 
+## JOBS são conjuntos são um conjunto de tarefas que precisamos executar
 jobs:
-  demonstrando-estrutura:
-    name: "Demonstrar Estrutura Básica"
-    runs-on: ubuntu-latest
+  demonstrando-estrutura: ## nome do nosso job
+    name: "Demonstrar Estrutura Básica" ## como ele e exibido na interface
+    runs-on: ubuntu-latest ## Ele é o RUNNER
 
-    steps:
+    steps: ## Agora temos os STEPS que são um sequênciamento de ações
       - name: Checkout do Código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 ## AÇÃO que é de fato o que se é executado uses sao ações do Marketplace
 
       - name: Mostrar estrutura .github/workflows
-        run: |
+        run: | ## Esse é um exemplo de uma action personalizada que é feito 
           echo "== ESTRUTURA DE DIRETÓRIOS E ARQUIVOS .github/workflows =="
           ls -la .github/workflows
           echo ""
