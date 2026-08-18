@@ -16,7 +16,7 @@ jobs:
         os: [ubuntu-latest, windows-latest, macos-latest]
         node-version: [16, 18, 20]
         include:
-          # Configurações específicas
+          # Configurações específicas (experimentais)
           - os: ubuntu-latest
             node-version: 20
             experimental: true
