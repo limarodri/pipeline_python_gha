@@ -6,7 +6,7 @@ name: "Meu primeiro workflow"
 ## Aqui temos os eventos, que é o que trigga o workflow
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   workflow_dispatch:
 
 ## Variaveis de ambiente
@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v4 ## AÇÃO que é de fato o que se é executado uses sao ações do Marketplace
 
       - name: Mostrar estrutura .github/workflows
-        run: | ## Esse é um exemplo de uma action personalizada que é feito 
+        run: | ## Esse é um exemplo de uma action personalizada que é feito, comando no shell do RUNNER 
           echo "== ESTRUTURA DE DIRETÓRIOS E ARQUIVOS .github/workflows =="
           ls -la .github/workflows
           echo ""
