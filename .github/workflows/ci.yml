@@ -1,0 +1,45 @@
+name: "Meu primeiro workflow"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '18'
+
+jobs:
+  demonstrando-estrutura:
+    name: "Demonstrar Estrutura Básica"
+    runs-on: ubuntu-lates
+
+  steps:
+    - name: Checkout do Código
+      uses: actions/checkout@v4
+
+    - name: Mostrar estrutura .github/workflows 
+      run: |
+        echo " == ESTRUTURA DE DIRETÓRIOS E ARQUIVOS .github/workflows =="
+        ls -la .github/workflows
+        echo ""
+        echo " Total de workflows: $(ls -1 .github/workflows | wc -l) "
+
+    - name: Elementos obrigatórios do workflow
+      run: |
+        echo " == ELEMENTOS OBRIGATÓRIOS == "
+        echo " 1. name: Nome do workflow"
+        echo " 2. on: Evento que dispara o workflow"
+        echo " 3. jobs: Definição dos trabalhos a serem executados"
+        echo " 4. runs-on: Ambinete onde o job será executado"
+        echo " 5. steps: Passos individuais dentro de um job"
+        echo ""
+        echo " Total de elementos obrigatórios: 5"
+
+    - name: Variavéis e Contexto
+      run: |
+        echo " == VARIAVEIS E CONTEXTO == "
+        echo "Variavéis env: { env.NODE_VERSION }"
+        echo " 1. env: Definição de variáveis de ambiente"
+        echo " 2. contextos: Acesso a informações do workflow, job, runner, etc."
+        echo ""
+        echo " Total de variáveis de contexto: 2"
