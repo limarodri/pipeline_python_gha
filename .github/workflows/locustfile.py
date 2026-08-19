@@ -1,6 +1,7 @@
-from locust import HttpUser, task, between
 import json
 import random
+
+from locust import HttpUser, task, between
 
 
 class TaskManagerUser(HttpUser):
