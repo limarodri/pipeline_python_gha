@@ -122,7 +122,7 @@ GET /api/tasks?search=importante
 3. ** Security Scanning**
 - Safety (vulnerabilidades)
 - Bandit (security linting)
-4. **️ Build & Push**
+4. **Build & Push**
 - Multi-arch Docker builds
 - Push para Docker Hub
 - Cache otimizado
@@ -190,16 +190,16 @@ curl http://localhost:8000/api/stats
 - [ ] **Autenticação JWT**
 - [ ] **Multi-usuário**
 - [ ] **Due dates** e lembretes
-- [ ] ️ **Tags** e categorias
+- [ ] **Tags** e categorias
 - [ ] **Analytics** avançados
 - [ ] **Real-time updates** (WebSocket)
 - [ ] **PWA** support
 - [ ] **Internacionalização**
 ### **Infrastructure**
-- [ ] ️ **Kubernetes** deployment
+- [ ] **Kubernetes** deployment
 - [ ] **Prometheus** monitoring
 - [ ] **Grafana** dashboards
-- [ ] ️ **PostgreSQL** production DB
+- [ ] **PostgreSQL** production DB
 - [ ] **CDN** integration
 ##  Contribuindo
 1. Fork o projeto
@@ -214,4 +214,4 @@ Este projeto está licenciado sob a MIT License - veja o arquivo [LICENSE](LICEN
 - **GitHub Actions** pela plataforma CI/CD
 - **Docker** pela containerização
 - **Locust** pelos testes de performance
---- **DevOps Automation - Feito com ️ para demonstrações de CI/CD e GitHub Actions**
+--- **DevOps Automation - Feito para demonstrações de CI/CD e GitHub Actions**

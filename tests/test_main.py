@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import json
 
 import pytest
@@ -16,20 +15,6 @@ engine = create_engine(
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
-=======
-import pytest
-import json
-from fastapi.testclient import TestClient
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from main import app, get_db, Base
-
-# Test database
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
-engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
-TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 def override_get_db():
     try:
         db = TestingSessionLocal()
@@ -37,15 +22,10 @@ def override_get_db():
     finally:
         db.close()
 
-<<<<<<< HEAD
 
 app.dependency_overrides[get_db] = override_get_db
 
 
-=======
-app.dependency_overrides[get_db] = override_get_db
-
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 @pytest.fixture(scope="function")
 def client():
     Base.metadata.create_all(bind=engine)
@@ -53,10 +33,7 @@ def client():
         yield c
     Base.metadata.drop_all(bind=engine)
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 class TestHealthEndpoint:
     def test_health_check(self, client):
         response = client.get("/api/health")
@@ -65,20 +42,13 @@ class TestHealthEndpoint:
         assert data["status"] == "healthy"
         assert "timestamp" in data
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 class TestTaskCRUD:
     def test_create_task(self, client):
         task_data = {
             "title": "Test Task",
             "description": "Test Description",
-<<<<<<< HEAD
             "priority": "high",
-=======
-            "priority": "high"
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
         }
         response = client.post("/api/tasks", json=task_data)
         assert response.status_code == 200
@@ -150,11 +120,7 @@ class TestTaskCRUD:
             "title": "Updated Task",
             "description": "Updated Description",
             "priority": "high",
-<<<<<<< HEAD
             "completed": True,
-=======
-            "completed": True
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
         }
         response = client.put(f"/api/tasks/{task_id}", json=update_data)
         assert response.status_code == 200
@@ -208,10 +174,7 @@ class TestTaskCRUD:
         assert response.status_code == 404
         assert response.json()["detail"] == "Task not found"
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 class TestTaskFiltering:
     def setup_tasks(self, client):
         """Helper method to create test tasks"""
@@ -219,11 +182,7 @@ class TestTaskFiltering:
             {"title": "High Priority Task", "priority": "high", "completed": False},
             {"title": "Medium Priority Task", "priority": "medium", "completed": True},
             {"title": "Low Priority Task", "priority": "low", "completed": False},
-<<<<<<< HEAD
             {"title": "Another High Priority", "priority": "high", "completed": True},
-=======
-            {"title": "Another High Priority", "priority": "high", "completed": True}
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
         ]
 
         created_tasks = []
@@ -293,10 +252,7 @@ class TestTaskFiltering:
         tasks = response.json()
         assert len(tasks) == 2
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 class TestTaskStats:
     def test_empty_stats(self, client):
         response = client.get("/api/stats")
@@ -314,11 +270,7 @@ class TestTaskStats:
             {"title": "Task 1", "priority": "high", "completed": False},
             {"title": "Task 2", "priority": "high", "completed": True},
             {"title": "Task 3", "priority": "medium", "completed": False},
-<<<<<<< HEAD
             {"title": "Task 4", "priority": "low", "completed": True},
-=======
-            {"title": "Task 4", "priority": "low", "completed": True}
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
         ]
 
         for task in tasks:
@@ -333,10 +285,7 @@ class TestTaskStats:
         assert data["pending"] == 2
         assert data["high_priority"] == 2
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 class TestStaticFiles:
     def test_root_endpoint_returns_html(self, client):
         response = client.get("/")
@@ -351,10 +300,7 @@ class TestStaticFiles:
         assert "status" in data
         assert "timestamp" in data
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
 class TestDataValidation:
     def test_create_task_without_title_fails(self, client):
         task_data = {"description": "Task without title"}
@@ -379,8 +325,4 @@ class TestDataValidation:
         # Update with empty payload
         response = client.put(f"/api/tasks/{task_id}", json={})
         assert response.status_code == 200
-<<<<<<< HEAD
         # Should return the task unchanged
-=======
-        # Should return the task unchanged
->>>>>>> 1f1bf1f (Initial commit: DevOps Automation - Task Manager)
