@@ -7,6 +7,7 @@ import os
 import subprocess
 import sys
 
+
 def run_command(cmd, description):
     """Executa um comando e mostra o resultado"""
     print(f"\n{description}")
