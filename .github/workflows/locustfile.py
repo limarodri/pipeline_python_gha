@@ -1,7 +1,7 @@
 import json
 import random
 
-from locust import HttpUser, between, task
+from locust import HttpUser, between, piptask
 
 
 class TaskManagerUser(HttpUser):
